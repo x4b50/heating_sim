@@ -126,9 +126,7 @@ void loop() {
     }
     tft.print(b_temp);
     while (now - frame_start < FRAME) {
-        Serial.println(now-frame_start);
         now = millis();
-        delay(10);
     }
 }
 
@@ -143,8 +141,8 @@ inline void get_measures() {
 inline void time_sim() {
     unsigned long now = millis()/FRAME;
     hour = (now-start);
-    if (hour >= 24 * 60) {
-        hour = 0;
+    if (hour >= 24 * 60 -1) {
+        start = now+1;
     }
 }
 
